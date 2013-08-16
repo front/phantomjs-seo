@@ -1,0 +1,9 @@
+{
+  "name": "phantomjs-seo",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "phantom": "0.5.*",
+    "mkdirp": "0.3.*"
+  }
+}

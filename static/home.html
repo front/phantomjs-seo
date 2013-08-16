@@ -1,0 +1,41 @@
+<html ng-app="App" class="ng-scope"><head>
+    <title>AngularJS SEO with PhantomJS</title>
+    <!-- include this if you are not using hashbangs -->
+    <!-- <meta name="fragment" content="!" /> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak{display:none;}ng\:form{display:block;}</style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-resource.min.js"></script>
+    <script src="./js/application.js"></script>
+
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+  </head>
+  <body data-status="ready" class="">
+    <div class="container">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#!/">AngularJS SEO</a>
+            <div class="nav-collapse navbar-responsive-collapse">
+              <ul class="nav">
+                <li><a href="#!/">Home</a></li>
+                <li><a href="#!/videos">Videos</a></li>
+                <li><a href="#!/videos/slow">Slow Loading Videos</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div ng-view=""><h1 class="ng-scope">Index Page</h1>
+</div>
+    </div>
+  
+
+</body></html>
