@@ -5,7 +5,7 @@ var phantom = require('phantom');
 var url = require('url');
 var mkdirp = require('mkdirp');
 
-var SERVER_URL = 'http://127.0.0.1/phantomjs-seo/#!';
+var SERVER_URL = 'http://phantomjs.local/#!';
 
 phantom.create(function(ph) {
   http.createServer(function (req, res) {
@@ -19,6 +19,8 @@ phantom.create(function(ph) {
       res.write(path + ' not found\n');
       return res.end();
     }
+
+    console.log('requested ' + req.url);
 
     var file = './static' + path +
       (path.slice(-1) === '/' ? 'index.html' : '.html');
@@ -34,6 +36,10 @@ phantom.create(function(ph) {
       else {
         // Create a cached version and serve the file
         ph.createPage(function(page) {
+
+          // SET USER AGENT
+          page.set('settings.userAgent', 'NewsPhantom');
+
           page.open(SERVER_URL + path, function(status) {
           console.log('Open site: ', SERVER_URL + path, ' >> ', status);
 
