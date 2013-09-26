@@ -1,5 +1,5 @@
 (function() {
-  var App = angular.module('App', []);
+  var App = angular.module('App', ['ngRoute']);
 
   App.run(['$rootScope', function($rootScope) {
     var _getTopScope = function() {
@@ -53,16 +53,16 @@
   App.config(['$routeProvider', '$locationProvider', function($routes, $location) {
 
     $location.hashPrefix('!');
-    // $location.html5Mode(true);
+    $location.html5Mode(true);
 
-    $routes.when('/home',{
+    $routes.when('/',{
       controller : 'IndexCtrl',
-      templateUrl : './pages/index.html'
+      templateUrl : '/pages/index.html'
     });
 
     $routes.when('/videos',{
       controller : 'VideosCtrl',
-      templateUrl : './pages/videos.html',
+      templateUrl : '/pages/videos.html',
       resolve : {
         slow : function() {
           return false;
@@ -72,7 +72,7 @@
 
     $routes.when('/videos/slow',{
       controller : 'VideosCtrl',
-      templateUrl : './pages/videos.html',
+      templateUrl : '/pages/videos.html',
       resolve : {
         slow : function() {
           return true;
@@ -81,7 +81,7 @@
     });
 
     $routes.otherwise({
-      redirectTo : '/home'
+      redirectTo : '/'
     });
 
   }]);
