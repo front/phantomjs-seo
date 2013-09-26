@@ -1,9 +1,19 @@
 RewriteEngine On
 
-RewriteCond %{REQUEST_URI}  ^/phantomjs-seo/$
-RewriteCond %{QUERY_STRING} ^_escaped_fragment_=/?(.*)$
-RewriteRule ^(.*)$  http://localhost:8000/%1 [P]
-#RewriteRule ^(.*)$ /external/%1? [NC,L]
+#   RewriteCond %{REQUEST_URI}  ^/phantomjs-seo/$
+#   RewriteCond %{QUERY_STRING} ^_escaped_fragment_=/?(.*)$
+#   RewriteRule ^(.*)$  http://localhost:8000/%1 [P]
+#   #RewriteRule ^(.*)$ /external/%1? [NC,L]
 
-RewriteCond %{REQUEST_URI}  ^/phantomjs-seo/cache/?(.*)$
-RewriteRule ^(.*)$  http://localhost:8000/%1 [P]
+#   RewriteCond %{REQUEST_URI}  ^/phantomjs-seo/cache/?(.*)$
+#   RewriteRule ^(.*)$  http://localhost:8000/%1 [P]
+
+
+RewriteCond %{REQUEST_URI}      !^(/css|/js|/pages|/static)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{HTTP_USER_AGENT}  NewsPhantom
+RewriteRule ^(.*)$              index.html [L]
+
+RewriteCond %{REQUEST_URI}      !^(/css|/js|/pages|/static)
+RewriteCond %{HTTP_USER_AGENT}  !NewsPhantom
+RewriteRule ^(.*)$              http://localhost:8000/$1 [P]
